@@ -8,7 +8,7 @@ function onDeviceReady() {
 
 function deviceInfo() {
 
-	info =  'Hi, I am your smartphone :-)' + '\n' +
+	infoD =  'Hi, I am your smartphone :-)' + '\n' +
 			'=====' + '\n' +
 			'Device Name    : '     + device.name     + '\n' + 
 			'Device Cordova : '  + device.cordova + '\n' + 
@@ -17,6 +17,15 @@ function deviceInfo() {
 			'Device Model   : '    + device.model     + '\n' + 
 			'Device Version : '  + device.version  + '\n';
 
-	navigator.notification.alert(info);
+	navigator.notification.alert(infoD);
+	
+}
+function authorInfo() {
+
+	infoA =  'Hi, My author is' + '\n' +
+			'=====' + '\n' +
+			'Author Name	:	Mykola Shchur	\n'	+ 
+			'Author Email	:	kolya_shchur@mail.ru	\n'	;
+	navigator.notification.alert(infoA);
 	
 }

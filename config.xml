@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-		id          = "myfirstapp"
+		id          = "mysecondapp"
         version     = "1.0.0" >
 
-    <name>First app</name>
-    <description>My first mobile app</description>
-    <author href="http://mypersonalwebsite.com" email="johnbrown@gmail.com">
-		John Brown
+    <name>Second app</name>
+    <description>My second mobile app</description>
+    <author email="kolya_shchur@mail.ru">
+		Mykola Shchur
 	</author>
 	<platform name="android" />
 	
