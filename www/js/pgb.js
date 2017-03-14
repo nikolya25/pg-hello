@@ -6,7 +6,7 @@ function onDeviceReady() {
 	navigator.notification.beep(1);
 }
 
-function deviceInfo() {
+/*function deviceInfo() {
 
 	infoD =  'Hi, I am your smartphone :-)' + '\n' +
 			'=====' + '\n' +
@@ -26,6 +26,6 @@ function authorInfo() {
 			'=====' + '\n' +
 			'Author Name	:	Mykola Shchur	\n'	+ 
 			'Author Email	:	kolya_shchur@mail.ru	\n'	;
-	navigator.notification.alert(infoA);
+	navigator.notification.alert(infoA);*/
 	
 }
