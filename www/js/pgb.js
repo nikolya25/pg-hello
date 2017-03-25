@@ -3,6 +3,7 @@ function init() {
 }
 
 function onDeviceReady() {
+	console.log(navigator.accelerometer);
 	navigator.notification.beep(1);
 }
 
@@ -30,7 +31,7 @@ function authorInfo() {
 	navigator.notification.alert(infoA);
 }*/
 
-function checkConnection() {
+/*function checkConnection() {
 	var network = navigator.onLine ? 'online' : 'offline';
 	
 	var networkState = navigator.connection.type;
@@ -45,4 +46,19 @@ function checkConnection() {
     states[Connection.NONE]     = 'No network connection';
 	
     navigator.notification.alert(network	+	'\n'	+ 'Connection type	:	'	+	states[networkState]	+	'\n');
+}*/
+
+function onSuccess(acceleration) {
+    alert('Acceleration X: ' + acceleration.x + '\n' +
+          'Acceleration Y: ' + acceleration.y + '\n' +
+          'Acceleration Z: ' + acceleration.z + '\n' +
+          'Timestamp: '      + acceleration.timestamp + '\n');
+}
+
+function onError() {
+    alert('onError!');
+}
+
+function getAcceleration() {
+	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 }
