@@ -48,7 +48,7 @@ function authorInfo() {
     navigator.notification.alert(network	+	'\n'	+ 'Connection type	:	'	+	states[networkState]	+	'\n');
 }*/
 
-function onSuccess(acceleration) {
+/*function onSuccess(acceleration) {
     alert('Acceleration X: ' + acceleration.x + '\n' +
           'Acceleration Y: ' + acceleration.y + '\n' +
           'Acceleration Z: ' + acceleration.z + '\n' +
@@ -61,4 +61,8 @@ function onError() {
 
 function getAcceleration() {
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-}
+}*/
+
+/*function showSplashScreen() {
+	navigator.splashscreen.show();
+}*/
