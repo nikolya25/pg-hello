@@ -20,12 +20,29 @@ function onDeviceReady() {
 	navigator.notification.alert(infoD);
 	
 }
+
 function authorInfo() {
 
 	infoA =  'Hi, My author is' + '\n' +
 			'=====' + '\n' +
 			'Author Name	:	Mykola Shchur	\n'	+ 
 			'Author Email	:	kolya_shchur@mail.ru	\n'	;
-	navigator.notification.alert(infoA);*/
+	navigator.notification.alert(infoA);
+}*/
+
+function checkConnection() {
+	var network = navigator.onLine ? 'online' : 'offline';
 	
+	var networkState = navigator.connection.type;
+	var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+	
+    navigator.notification.alert(network	+	'\n'	+ 'Connection type	:	'	+	states[networkState]	+	'\n');
 }
