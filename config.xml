@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-		id          = "my6thapp"
+		id          = "myseventhapp"
         version     = "1.0.0" >
 
-    <name>6th app</name>
-    <description>My 6th mobile app</description>
+    <name>Seventh app</name>
+    <description>My seventh mobile app</description>
     <author email="kolya_shchur@mail.ru">
 		Mykola Shchur
 	</author>
 	
 	<platform name="android" >
-		<splash src="/img/storm.jpg" density="land-hdpi" />
+		<!--<splash src="/img/storm.jpg" density="land-hdpi" />
 		<splash src="/img/storm.jpg" density="land-ldpi" />
 		<splash src="/img/storm.jpg" density="land-mdpi" />
 		<splash src="/img/storm.jpg" density="land-xhdpi" />
@@ -19,14 +19,14 @@
 		<splash src="/img/storm.jpg" density="port-hdpi" />
 		<splash src="/img/storm.jpg" density="port-ldpi" />
 		<splash src="/img/storm.jpg" density="port-mdpi" />
-		<splash src="/img/storm.jpg" density="port-xhdpi" />
+		<splash src="/img/storm.jpg" density="port-xhdpi" />-->
 	</platform>
 	
 	<platform name="browser">
-		<preference name="SplashScreen" value="/img/storm.jpg" />
+		<!--<preference name="SplashScreen" value="/img/storm.jpg" />
 		<preference name="SplashScreenDelay" value="2000" />
 		<preference name="SplashScreenWidth" value="960" />
-		<preference name="SplashScreenHeight" value="380" />
+		<preference name="SplashScreenHeight" value="380" />-->
 	</platform>
 	
 	<plugin name="cordova-plugin-device" spec="~1.1.5" />
@@ -34,5 +34,6 @@
 	<plugin name="cordova-plugin-network-information" spec="~1.3.2" />
 	<plugin name="cordova-plugin-device-motion" spec="~1.2.4" />
 	<plugin name="cordova-plugin-splashscreen" spec="~4.0.2" />
+	<plugin name="cordova-plugin-contacts" sprc="~2.3.0" />
 	
 </widget>

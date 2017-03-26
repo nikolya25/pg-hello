@@ -4,6 +4,7 @@ function init() {
 
 function onDeviceReady() {
 	console.log(navigator.accelerometer);
+	console.log(navigator.contacts)
 	navigator.notification.beep(1);
 }
 
@@ -62,3 +63,25 @@ function onError() {
 function getAcceleration() {
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 }*/
+
+function onSuccess(contacts) {
+    for (var i = 0; i < contacts.length; i++) {
+        alert("Formatted:	"	+	contacts[i].name.formatted	+ "\n" +
+            "Name:	"	+	contacts[i].displayName	+ "\n" +
+            "Phone Number:	"	+	contacts[i].phoneNumber	+ "\n\n";
+    }
+};
+ 
+function onError(contactError) {
+    alert('onError!');
+};
+ 
+function showContacts () {
+	var options      = new ContactFindOptions();
+	options.filter   = "";
+	options.multiple = true;
+	options.desiredFields = [navigator.contacts.fieldType.id];
+	options.hasPhoneNumber = true;
+	filter = ["displayName", "name"];
+	navigator.contacts.find(filter, onSuccess, onError, options);
+}
