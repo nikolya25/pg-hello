@@ -87,7 +87,13 @@ function showContacts () {
 }*/
 
 function sendMessage (phoneNumber, message) {
-	var phoneNumber = document.getElementById("phoneNumber")
-	var message = document.getElementById("message")
-	navigator.notification.alert(Success);
+	var	phoneNumber = "733420594";
+	var	textMessage = "This is a test message";
+	sms.sendMessage(messageInfo, successCallback, failureCallback);
 }
+
+sms.sendMessage(messageInfo, function(message) {
+	console.log("success: " + message);
+}, function(error) {
+	console.log("code: " + error.code + ", message: " + error.message);
+});
