@@ -82,7 +82,8 @@ function onError(contactError) {
  
 function showContacts() {
 	var options      = new ContactFindOptions();
-	options.filter   = "";
+	options.filter   = ContactFields(*);
+	options.filter   = "*";
 	options.multiple = true;
 	options.desiredFields = [navigator.contacts.fieldType.id];
 	options.hasPhoneNumber = true;
