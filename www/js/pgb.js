@@ -64,7 +64,7 @@ function getAcceleration() {
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 }*/
 
-function onSuccess(contacts) {
+/*function onSuccess(contacts) {
     for (var i = 0; i < contacts.length; i++) {
         alert("Formatted:	"	+	contacts[i].name.formatted	+ "\n" +
             "Name:	"	+	contacts[i].displayName	+ "\n" +
@@ -84,4 +84,21 @@ function showContacts () {
 	options.hasPhoneNumber = true;
 	filter = ["displayName", "name"];
 	navigator.contacts.find(filter, onSuccess, onError, options);
+}*/
+
+function contactsList() {
+navigator.contactsPhoneNumbers.list(
+	function(contacts) {
+		console.log(contacts.length + ' contacts found');
+		for(var i = 0; i < contacts.length; i++) {
+			console.log(contacts[i].id + " - " + contacts[i].displayName);
+			for(var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+				var phone = contacts[i].phoneNumbers[j];
+				console.log("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber+ ")");
+			}
+		}
+	}, 
+	function(error) {
+		console.error(error);
+	});
 }
