@@ -86,13 +86,17 @@ function showContacts () {
 	navigator.contacts.find(filter, onSuccess, onError, options);
 }*/
 
-function sendMessage (phoneNumber, message) {
-	var	phoneNumber = "733420594";
-	var	textMessage = "This is a test message";
-	sms.sendMessage(messageInfo, successCallback, failureCallback);
+function sendMessage () {
+	sms.sendMessage(phoneNumber, textMessage, successCallback, failureCallback);
 }
 
-sms.sendMessage(messageInfo, function(message) {
+function messageInfo() {
+	var form = document.forms['sending'];
+	var	phoneNumber = form.phoneNumber.value;
+	var	textMessage = form.message.value;
+}
+
+sms.sendMessage(messageInfo(), function(message) {
 	console.log("success: " + message);
 }, function(error) {
 	console.log("code: " + error.code + ", message: " + error.message);
