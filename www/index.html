@@ -14,13 +14,13 @@
 		<!--<input type="button" onclick="getAcceleration()" value="Get current accelaration">-->
 		<!--<input type="button" onclick="showContacts()" value="Show Contacts">-->
 		
-		<form id="sending" onsubmit="sendMessage()">
-			<input type="text" id="phoneNumber" name="phoneNumber" size="9" />
-			<input type="text" id="message" name="message" size="50" />
-			<input type="submit" id="send" name="send" value="Send">
+		<form id="sending">
+			<div>
+				<input type="text" id="phoneNumber" name="phoneNumber" size="9" />
+				<input type="text" id="message" name="message" size="50" />
+				<input type="button" onclick="sendMessage()" id="send" name="send" value="Send">
+			</div>
 		</form>
-		
-		<input type="button" onclick="sendMessage()" value="Send">
 		
 		<!--<p style="color:yellow; font-size:37px; text-align:center">
 			<b>Mykola Shchur</b><br>
