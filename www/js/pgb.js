@@ -67,23 +67,22 @@ function getAcceleration() {
 
 function onSuccess(contacts) {
     alert('Found ' + contacts.length + ' contacts.');
-	/*for (var i = 0; i < contacts.length; i++) {
-        for(var i = 0; i < contacts.length; i++) {
-			console.log(contacts[i].id + " - " + contacts[i].displayName);
-			for(var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-				var phone = contacts[i].phoneNumbers[j];
-				console.log("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber+ ")");*/
-    }
-};
+    for(var i = 0; i < contacts.length; i++) {
+		console.log(contacts[i].id + " - " + contacts[i].displayName);
+		for(var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+			var phone = contacts[i].phoneNumbers[j];
+			console.log("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber+ ")");
+		}
+	};
+}
  
-function onError(contactError) {
+function onError() {
     alert('onError!');
 };
  
 function showContacts() {
 	var options      = new ContactFindOptions();
-	options.filter   = ContactFields(*);
-	options.filter   = "*";
+	options.filter   = "";
 	options.multiple = true;
 	options.desiredFields = [navigator.contacts.fieldType.id];
 	options.hasPhoneNumber = true;
