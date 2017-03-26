@@ -1,0 +1,34 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "mythirdapp"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "mythirdapp"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "mythirdapp"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "my5thapp"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "my6thapp"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "myseventhapp"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "myseventhapp"
+        }
+    }
+}

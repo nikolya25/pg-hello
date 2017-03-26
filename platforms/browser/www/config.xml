@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="myseventhapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <feature name="Device">
+        <param name="browser-package" value="Device" />
+    </feature>
+    <name>Seventh app</name>
+    <description>My seventh mobile app</description>
+    <author email="kolya_shchur@mail.ru">
+		Mykola Shchur
+	</author>
+</widget>

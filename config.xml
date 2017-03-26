@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-		id          = "myseventhapp"
+		id          = "myeighthapp"
         version     = "1.0.0" >
 
-    <name>Seventh app</name>
-    <description>My seventh mobile app</description>
+    <name>Eighth app</name>
+    <description>My eighth mobile app</description>
     <author email="kolya_shchur@mail.ru">
 		Mykola Shchur
 	</author>
