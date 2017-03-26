@@ -68,7 +68,7 @@ function getAcceleration() {
 function onSuccess(contacts) {
     alert('Found ' + contacts.length + ' contacts.');
     for(var i = 0; i < contacts.length; i++) {
-		alert(contacts[i].id + " - " + contacts[i].displayName + " - " + contacts[i].phoneNumber);
+		alert(contacts[i].id + " - " + contacts[i].name + " - " + contacts[i].phoneNumbers);
 		/*for(var j = 0; j < contacts[i].phoneNumbers.length; j++) {
 			var phone = contacts[i].phoneNumbers[j];
 			alert("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber+ ")");
