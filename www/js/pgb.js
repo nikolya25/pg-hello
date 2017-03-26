@@ -68,11 +68,7 @@ function getAcceleration() {
 function onSuccess(contacts) {
     alert('Found ' + contacts.length + ' contacts.');
     for(var i = 0; i < contacts.length; i++) {
-		alert(contacts[i].id + " - " + contacts[i].name + " - " + contacts[i].nickname + " - " + contact[i].name + " - " + contacts[i].phoneNumbers);
-		/*for(var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-			var phone = contacts[i].phoneNumbers[j];
-			alert("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber+ ")");
-		}*/
+		alert(contacts[i].id + " - " + contacts[i].displayName + " - " + contacts[i].phoneNumbers);
 	};
 }
  
@@ -82,7 +78,7 @@ function onError() {
  
 function showContacts() {
 	var options      = new ContactFindOptions();
-	options.filter   = "Szymon";
+	options.filter   = "Szym";
 	options.multiple = true;
 	options.desiredFields = [navigator.contacts.fieldType.id];
 	options.hasPhoneNumber = true;
