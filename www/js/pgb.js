@@ -64,7 +64,7 @@ function getAcceleration() {
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 }*/
 
-function onSuccess(contacts) {
+/*function onSuccess(contacts) {
     for (var i = 0; i < contacts.length; i++) {
         alert("Formatted:	"	+	contacts[i].name.formatted	+ "\n" +
             "Name:	"	+	contacts[i].displayName	+ "\n" +
@@ -84,4 +84,10 @@ function showContacts () {
 	options.hasPhoneNumber = true;
 	filter = ["displayName", "name"];
 	navigator.contacts.find(filter, onSuccess, onError, options);
+}*/
+
+function sendMessage (phoneNumber, message) {
+	var phoneNumber = document.getElementById("phoneNumber")
+	var message = document.getElementById("message")
+	navigator.notification.alert(Success);
 }
