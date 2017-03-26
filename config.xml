@@ -35,5 +35,5 @@
 	<plugin name="cordova-plugin-device-motion" spec="~1.2.4" />
 	<plugin name="cordova-plugin-splashscreen" spec="~4.0.2" />
 	<plugin name="cordova-plugin-contacts" sprc="~2.3.0" />
-	
+	<plugin name="hazems-cordova-plugin-sms " sprc="~0.0.2" />
 </widget>
