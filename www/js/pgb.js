@@ -62,7 +62,3 @@ function onError() {
 function getAcceleration() {
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 }*/
-
-/*function showSplashScreen() {
-	navigator.splashscreen.show();
-}*/
