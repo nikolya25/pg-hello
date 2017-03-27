@@ -68,7 +68,7 @@ function getAcceleration() {
 function onSuccess(contacts) {
     alert('Found ' + contacts.length + ' contacts.');
     for(var i = 0; i < contacts.length; i++) {
-		alert(contacts[i].id + " - " + contacts[i].fieldType.displayName + " - " + contacts[i].fieldType.phoneNumbers);
+		alert(contacts[i].id + " - " + contacts[i].displayName + " - " + contacts[i].phoneNumbers);
 	};
 }
  
