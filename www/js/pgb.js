@@ -3,6 +3,7 @@ function init() {
 }
 
 function onDeviceReady() {
+	console.log("navigator.geolocation works well");
 	navigator.notification.beep(1);
 }
 
@@ -21,7 +22,7 @@ function deviceInfo() {
 	
 }
 
-var onSucces = function(position) {
+function onSuccess(position) {
     alert('Latitude: '          + position.coords.latitude          + '\n' +
         'Longitude: '         + position.coords.longitude         + '\n' +
         'Altitude: '          + position.coords.altitude          + '\n' +
@@ -30,11 +31,12 @@ var onSucces = function(position) {
         'Heading: '           + position.coords.heading           + '\n' +
         'Speed: '             + position.coords.speed             + '\n' +
         'Timestamp: '         + position.timestamp                + '\n');
-};
+}
  
 function onError(error) {
     alert('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');
 }
-
-navigator.geolocation.getCurrentPosition(onSuccess, onError);
+function showLocation(onSuccess, onError) {
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
