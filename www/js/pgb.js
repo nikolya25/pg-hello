@@ -57,3 +57,5 @@ function getMap(latitude, longitude) {
     map.setZoom(15);
     map.setCenter(marker.getPosition());
 }
+
+getMapLocation();
