@@ -41,21 +41,10 @@ function onMapSuccess(position) {
 
 function getMap(latitude, longitude) {
 	var mapOptions= {
-		center: new google.maps.LatLng(0, 0),
+		center: new google.maps.LatLng(latitude, longitude),
 		zoom: 5,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	
-	var latLong = new google.maps.LatLng(latitude, longitude);
- 
-    var marker = new google.maps.Marker({
-        position: latLong
-    });
- 
-    marker.setMap(map);
-    map.setZoom(15);
-    map.setCenter(marker.getPosition());
+	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 }
-
-getMapLocation();
