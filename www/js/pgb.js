@@ -21,7 +21,7 @@ function deviceInfo() {
 	
 }
 
-var onSuccess = function(position) {
+function onSuccess(position) {
         alert('Latitude: '          + position.coords.latitude          + '\n' +
               'Longitude: '         + position.coords.longitude         + '\n' +
               'Altitude: '          + position.coords.altitude          + '\n' +
@@ -39,6 +39,6 @@ var onSuccess = function(position) {
               'message: ' + error.message + '\n');
     }
  
-function showLocation {
+function showLocation() {
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
