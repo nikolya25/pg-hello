@@ -11,7 +11,17 @@
 		
 	</head>
 	<body bgcolor="purple" onload="init()">
-		<div id="map" alt="Google map"></div>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnYXmwjsfy9DbCi5Kn4NfXbS6Z78S_Ko&callback=getMap"></script> 
+		<div data-role="page" id="pageone">
+		  <div data-role="header">
+			<h1>GPS</h1>
+		  </div>
+		  <div data-role="main" class="ui-content">
+			<div id="map" alt="Google map"></div>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnYXmwjsfy9DbCi5Kn4NfXbS6Z78S_Ko&callback=getMap"></script> 	
+		  </div>
+		  <div data-role="footer" data-position="fixed">
+			<h1>Mykola Shchur</h1>
+		  </div> 
+		</div> 
 	</body>
 </html>
