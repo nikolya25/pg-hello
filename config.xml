@@ -9,6 +9,7 @@
     <author email="kolya_shchur@mail.com">
 		Mykola Shchur
 	</author>
+	
 	<platform name="android" />
 	
 	<plugin name="cordova-plugin-device" spec="~1.1.4" />

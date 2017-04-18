@@ -33,10 +33,11 @@ function onSuccess(position) {
         'Timestamp: '         + position.timestamp                + '\n');
 }
  
-function onError(error) {
+function onError() {
     alert('code: '    + error.code    + '\n' +
         'message: ' + error.message + '\n');
 }
-function showLocation(onSuccess, onError) {
+
+function getLocation() {
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
