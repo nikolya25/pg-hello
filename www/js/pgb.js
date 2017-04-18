@@ -21,15 +21,38 @@ function deviceInfo() {
 	
 }
 
-/*var Latitude = undefined;
+/*function onSuccess(position) {
+        alert('Latitude: '          + position.coords.latitude          + '\n' +
+              'Longitude: '         + position.coords.longitude         + '\n' +
+              'Altitude: '          + position.coords.altitude          + '\n' +
+              'Accuracy: '          + position.coords.accuracy          + '\n' +
+              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+              'Heading: '           + position.coords.heading           + '\n' +
+              'Speed: '             + position.coords.speed             + '\n' +
+              'Timestamp: '         + position.timestamp                + '\n');
+    };
+ 
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+ 
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+*/
+
+var Latitude = undefined;
 var Longitude = undefined;
+ 
+// Get geo coordinates 
 
 function getMapLocation() {
  
     navigator.geolocation.getCurrentPosition
     (onMapSuccess, onMapError, { enableHighAccuracy: true });
 }
-
+ 
+// Success callback for get geo coordinates 
+ 
 function onMapSuccess(position) {
  
     Latitude = position.coords.latitude;
@@ -37,45 +60,38 @@ function onMapSuccess(position) {
  
     getMap(Latitude, Longitude);
  
-}*/
+}
 
-/*function getMap() {
-	var mapOptions= {
-		center: new google.maps.LatLng(0, 0),
-		zoom: 5,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-	
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-}*/
+// Error callback for get geo coordinates
 
-$( document ).on( "pageinit", "#map-page", function() {
-    var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);  // Default to Hollywood, CA when no geolocation support
-    if ( navigator.geolocation ) {
-        function success(pos) {
-            // Location found, show map with these coordinates
-            drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        }
-        function fail(error) {
-            drawMap(defaultLatLng);  // Failed to find location, show default map
-        }
-        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
-    } else {
-        drawMap(defaultLatLng);  // No geolocation support, show default map
-    }
-    function drawMap(latlng) {
-        var myOptions = {
-            zoom: 10,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-        // Add an overlay to the map of current lat/lng
-        var marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-            title: "Greetings!"
-        });
-    }
-});
+function onMapError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+   } 
+
+// Get map by using coordinates 
+ 
+function getMap(latitude, longitude) {
+ 
+    var mapOptions = {
+        center: new google.maps.LatLng(0, 0),
+        zoom: 1,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+ 
+    map = new google.maps.Map
+    (document.getElementById("map"), mapOptions);
+ 
+ 
+    var latLong = new google.maps.LatLng(latitude, longitude);
+ 
+    var marker = new google.maps.Marker({
+        position: latLong
+    });
+ 
+    marker.setMap(map);
+    map.setZoom(15);
+    map.setCenter(marker.getPosition());
+}
+
+getMapLocation();
