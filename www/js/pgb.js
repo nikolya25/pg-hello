@@ -21,11 +21,39 @@ function deviceInfo() {
 	
 }
 
-function myMap() {
-	var mapOptions = {
-		center: new google.maps.LatLng(51.5, -0.12),
-		zoom: 10,
-		mapTypeId: google.maps.MapTypeId.HYBRID
+var Latitude = undefined;
+var Longitude = undefined;
+
+function getMapLocation() {
+ 
+    navigator.geolocation.getCurrentPosition
+    (onMapSuccess, onMapError, { enableHighAccuracy: true });
+}
+
+function onMapSuccess(position) {
+ 
+    Latitude = position.coords.latitude;
+    Longitude = position.coords.longitude;
+ 
+    getMap(Latitude, Longitude);
+ 
+}
+
+function getMap(latitude, longitude) {
+	var mapOptions= {
+		center: new google.maps.LatLng(0, 0),
+		zoom: 5,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	
+	var latLong = new google.maps.LatLng(latitude, longitude);
+ 
+    var marker = new google.maps.Marker({
+        position: latLong
+    });
+ 
+    marker.setMap(map);
+    map.setZoom(15);
+    map.setCenter(marker.getPosition());
 }
