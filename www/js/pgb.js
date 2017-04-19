@@ -6,22 +6,11 @@ function onDeviceReady() {
 
 }
 
-var map;
-var Latitude = undefined;
-var Longitude = undefined;
+var div = document.getElementById("map");
+var map = plugin.google.maps.Map.getMap(div);
+map.one(plugin.google.maps.event.MAP_READY, function() {
 
-document.addEventListener("deviceready", function() {
-	var div = document.getElementById("map");
- 
-	// Initialize the map view 
-	map = plugin.google.maps.Map.getMap(div);
- 
-	// Wait until the map is ready status. 
-	map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
-}, false);
- 
-function onMapReady() {
-	var onSuccess = function(location) {
+  var onSuccess = function(location) {
     var msg = ["Current your location:\n",
       "latitude:" + location.latLng.lat,
       "longitude:" + location.latLng.lng,
@@ -48,17 +37,13 @@ function onMapReady() {
     alert(JSON.stringify(msg));
   };
 
-  var button = div.getElementsById("button")[0];
-  button.addEventListener("click", function() {
+  var button = div.getElementsByTagName('button')[0];
+  button.addEventListener('click', function() {
     map.clear();
     map.getMyLocation(onSuccess, onError);
   });
 
-}
- 
-function onBtnClicked() {
-	getMapLocation();
-}
+});
 
 /*// Get geo coordinates 
 
