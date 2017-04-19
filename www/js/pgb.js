@@ -8,7 +8,7 @@ var div = document.getElementById("map");
 var map = plugin.google.maps.Map.getMap(div , {'mapType': plugin.google.maps.MapTypeId.ROADMAP,
   'controls': {
     'compass': true,
-    //'myLocationButton': true,
+    'myLocationButton': true,
     'indoorPicker': true,
     'zoom': true
   },
@@ -19,36 +19,22 @@ var map = plugin.google.maps.Map.getMap(div , {'mapType': plugin.google.maps.Map
     'zoom': true
   },
   camera: {
-    target : [
-      {lat:41.79883, lng:140.75675},
-      {lat:41.799240000000005, lng:140.75875000000002},
-      {lat:41.797650000000004, lng:140.75905},
-      {lat:41.79637, lng:140.76018000000002},
-      {lat:41.79567, lng:140.75845},
-      {lat:41.794470000000004, lng:140.75714000000002},
-      {lat:41.795010000000005, lng:140.75611},
-      {lat:41.79477000000001, lng:140.75484},
-      {lat:41.79576, lng:140.75475},
-      {lat:41.796150000000004, lng:140.75364000000002},
-      {lat:41.79744, lng:140.75454000000002},
-      {lat:41.79909000000001, lng:140.75465},
-      {lat:41.79883, lng:140.75673}
-    ],
+    target : {
+		lat:0, lng:0
+	},
   }
 });
 }
 
-var div = document.getElementById("map");
-var map = plugin.google.maps.Map.getMap(div);
 map.one(plugin.google.maps.event.MAP_READY, function() {
-  var onSuccess = function(location) {
-    var msg = ["Current your location:\n",
+  map.on(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
+	function onSuccess(location) {
+	var msg = ["Current location:\n",
       "latitude:" + location.latLng.lat,
       "longitude:" + location.latLng.lng,
       "speed:" + location.speed,
       "time:" + location.time,
       "bearing:" + location.bearing].join("\n");
-
 
     map.addMarker({
       'position': location.latLng,
@@ -68,13 +54,12 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
     alert(JSON.stringify(msg));
   };
 
-  var button = div.getElementById("button");
-  button.addEventListener("click", function() {
     map.clear();
     map.getMyLocation(onSuccess, onError);
   });
-
 });
+
+
 /*// Get geo coordinates 
 
 function getMapLocation() {
