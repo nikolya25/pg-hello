@@ -3,23 +3,52 @@ function init() {
 }
 
 function onDeviceReady() {
-	navigator.notification.beep(1);
+
 }
 
 var map;
 var Latitude = undefined;
 var Longitude = undefined;
 
-document.addEventListener("deviceready", function() {
-	var div = document.getElementById("map");
- 
-	// Initialize the map view 
-	map = plugin.google.maps.Map.getMap(div);
- 
-	// Wait until the map is ready status. 
-	map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
-}, false);
- 
+var div = document.getElementById("map");
+var map = plugin.google.maps.Map.getMap(div);
+map.one(plugin.google.maps.event.MAP_READY, function() {
+
+  var onSuccess = function(location) {
+    var msg = ["Current location: \n",
+      "latitude:" + location.latLng.lat,
+      "longitude:" + location.latLng.lng,
+      "speed:" + location.speed,
+      "time:" + location.time,
+      "bearing:" + location.bearing].join("\n");
+
+
+    map.addMarker({
+      'position': location.latLng,
+      'title': msg
+    }, function(marker) {
+      marker.showInfoWindow();
+      map.animateCamera({
+        target: location.latLng,
+        zoom: 16
+      }, function() {
+        marker.showInfoWindow();
+      });
+    });
+  };
+
+  var onError = function(msg) {
+    alert(JSON.stringify(msg));
+  };
+
+  var button = div.getElementsByTagName('button')[0];
+  button.addEventListener('click', function() {
+    map.clear();
+    map.getMyLocation(onSuccess, onError);
+  });
+
+});
+/* 
 function onMapReady() {
 	var button = document.getElementById("button");
 	button.addEventListener("click", onBtnClicked);
@@ -78,5 +107,5 @@ function getMap(latitude, longitude) {
     marker.setMap(map);
     map.setZoom(15);
     map.setCenter(marker.getPosition());
-}
+}*/
 
