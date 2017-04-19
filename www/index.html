@@ -10,6 +10,8 @@
 		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
 		<script src="js/jquery-2.1.4.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>	
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnYXmwjsfy9DbCi5Kn4NfXbS6Z78S_Ko&callback=getMap"></script>
+
 	</head>
 	<body onload="init()">
 		<div data-role="page" id="pageone">
@@ -18,8 +20,8 @@
 		  </div>
 		  <div data-role="main" class="ui-content">
 			<iframe id="map" style="width:100%;height:500px;" alt="Google map"></iframe>
-			<script src="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDlnYXmwjsfy9DbCi5Kn4NfXbS6Z78S_Ko"></script>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnYXmwjsfy9DbCi5Kn4NfXbS6Z78S_Ko&callback=getMap"></script>
+			<a href="#" id="button" class="ui-btn ui-btn-inline ui-corner-right ui-shadow">Show map</a>
 		  </div>
 		  <div data-role="footer" data-position="fixed">
 			<h1>Mykola Shchur</h1>
