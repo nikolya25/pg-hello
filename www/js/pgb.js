@@ -4,8 +4,6 @@ function init() {
 
 function onDeviceReady() {
 
-}
-
 var div = document.getElementById("map");
 var map = plugin.google.maps.Map.getMap(div , {'mapType': plugin.google.maps.MapTypeId.HYBRID,
   'controls': {
@@ -74,7 +72,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
   });
 
 });
-
+}
 /*// Get geo coordinates 
 
 function getMapLocation() {
