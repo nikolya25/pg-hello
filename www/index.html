@@ -1,40 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Google Maps JavaScript API v3 Example: Map Simple</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
-        <script src="js/pgb.js"></script>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="js/pgb.js"></script>
 		<script src="cordova.js"></script>
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 		<link rel="stylesheet" href="css/themes/my-first-theme.css" />
 		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
 		<script src="js/jquery-2.1.4.min.js"></script>
-		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-		<meta charset="utf-8"/>
-        <style>
-            html, body, #map_canvas {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            }
-        </style>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-        <script>
-            var map;
-            function initialize() {
-            var mapOptions = {
-            zoom: 8,
-            center: new google.maps.LatLng(-34.397, 150.644),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(document.getElementById('map_canvas'),
-            mapOptions);
-            }
-             
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
-    </head>
-    <body>
-        <div id="map_canvas"></div>
-    </body>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>	
+	</head>
+	<body onload="init()">
+		<div data-role="page" id="pageone">
+		  <div data-role="header">
+			<h1>GPS</h1>
+		  </div>
+		  <div data-role="main" class="ui-content">
+			<section id="map" style="width:100%;height:500px;" alt="Google map"></section>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnYXmwjsfy9DbCi5Kn4NfXbS6Z78S_Ko&callback=getMap"></script>
+		  </div>
+		  <div data-role="footer" data-position="fixed">
+			<h1>Mykola Shchur</h1>
+		  </div> 
+		</div> 
+	</body>
 </html>
