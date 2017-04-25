@@ -15,11 +15,9 @@
 		<!--<input type="button" onclick="showContacts()" value="Show Contacts">-->
 		
 		<form id="sending" onsubmit="sendMessage()">
-			<div>
-				<input type="text" id="phoneNumber" name="phoneNumber" size="9" />
-				<input type="text" id="message" name="message" size="50" />
-				<input type="button" onclick="sendMessage()" id="send" name="send" value="Send">
-			</div>
+			<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
+			<textarea id="messageTxt" placeholder="Enter message"></textarea>
+			<input type="button" onclick="app.sendSms()" value="Send SMS" />
 		</form>
 		
 		<!--<p style="color:yellow; font-size:37px; text-align:center">
