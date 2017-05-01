@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-		id          = "myGPSapp"
+		id          = "myGPSSMSapp"
         version     = "1.0.0" >
 
-    <name>GPS app</name>
-    <description>My GPS app</description>
+    <name>GPSSMS app</name>
+    <description>My GPSSMS app</description>
     <author email="kolya_shchur@mail.com">
 		Mykola Shchur
 	</author>

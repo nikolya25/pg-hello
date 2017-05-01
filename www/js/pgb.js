@@ -21,7 +21,7 @@ function onDeviceReady() {
 		},
 		camera: {
 			target : {
-				lat: 50.0604665, lng: 19.9394975
+				lat: 0, lng: 0
 			},
 		}
 	});
