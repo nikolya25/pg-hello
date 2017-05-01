@@ -28,36 +28,38 @@ function onDeviceReady() {
 }
 
 map.one(plugin.google.maps.event.MAP_READY, function() {
-  map.on(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
-	function onSuccess(location) {
-		var msg = ["Current location:\n",
-		"latitude:" + location.latLng.lat,
-		"longitude:" + location.latLng.lng,
-		"speed:" + location.speed,
-		"time:" + location.time,
-		"bearing:" + location.bearing].join("\n");
+	map.on(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
+		function onSuccess(location) {
+			var msg = ["Current location:\n",
+			"latitude:" + location.latLng.lat,
+			"longitude:" + location.latLng.lng,
+			"speed:" + location.speed,
+			"time:" + location.time,
+			"bearing:" + location.bearing].join("\n");
 
-		map.addMarker({
-		'position': location.latLng,
-		'title': msg
-    }, function(marker) {
-		marker.showInfoWindow();
-		map.animateCamera({
-			target: location.latLng,
-			zoom: 16
-		}, function() {
-			marker.showInfoWindow();
-		});
-	});
-};
+			map.addMarker({
+				'position': location.latLng,
+				'title': msg
+			}, function(marker) {
+				marker.showInfoWindow();
+				map.animateCamera({
+				target: location.latLng,
+				zoom: 16
+				}, function() {
+					marker.showInfoWindow();
+				});
+			});
+		};
 
-var onError = function(msg) {
-	alert(JSON.stringify(msg));
-};
+		var onError = function(msg) {
+			alert(JSON.stringify(msg));
+		};
 
-map.clear();
-map.getMyLocation(onSuccess, onError);
-
+		map.clear();
+		map.getMyLocation(onSuccess, onError);
+	});	
+});
+	
 var sms = {
     sendSms: function() {
         var number = document.getElementById('numberTxt').value;
