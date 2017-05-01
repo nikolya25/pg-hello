@@ -22,7 +22,7 @@ function onDeviceReady() {
 			target : {
 				lat: 50.0593677, lng: 19.9375843
 			},
-			zoom : 10
+			zoom : 14
 		}
 	});
 }
@@ -60,7 +60,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 	});	
 });
 	
-var sms = {
+var smsapp = {
     sendSms: function() {
         var number = document.getElementById('numberTxt').value;
         var message = document.getElementById('messageTxt').value;
@@ -70,7 +70,7 @@ var sms = {
         var options = {
             replaceLineBreaks: false, // true to replace \n by a new line, false by default
             android: {
-                intent: ''  // send SMS with the native android SMS messaging
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
                 //intent: '' // send SMS without open any other app
             }
         };
