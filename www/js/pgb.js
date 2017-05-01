@@ -3,7 +3,7 @@ function init() {
 }
 
 function onDeviceReady() {
-	var network = navigator.onLine ? function(){alert("You're online");} : function(){alert("No internet connection");};
+	var network = navigator.onLine ? function(){ alert("You're online");} : function(){ alert("No internet connection");};
 	var div = document.getElementById("map");
 	var map = plugin.google.maps.Map.getMap(div , {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
@@ -21,7 +21,7 @@ function onDeviceReady() {
 		},
 		camera: {
 			target : {
-				lat: 0, lng: 0
+				lat: 50.0593677, lng: 19.9375843
 			},
 		}
 	});
