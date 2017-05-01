@@ -1,4 +1,5 @@
 function init() {
+	map.clear();
 	map.getMyLocation(onSuccess, onError);
 	document.addEventListener("deviceready",onDeviceReady, false);
 }
@@ -21,7 +22,8 @@ function onDeviceReady() {
 		},
 		camera: {
 			target : {
-				lat: location.latLng.lat, lng: location.latLng.lat
+				lat: location.latLng,
+				zoom: 16
 			},
 		}
 	});
@@ -54,3 +56,6 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 var onError = function(msg) {
 	alert(JSON.stringify(msg));
 };
+
+map.clear();
+map.getMyLocation(onSuccess, onError);
