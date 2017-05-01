@@ -1,6 +1,4 @@
 function init() {
-	map.clear();
-	map.getMyLocation(onSuccess, onError);
 	document.addEventListener("deviceready",onDeviceReady, false);
 }
 
@@ -22,7 +20,7 @@ function onDeviceReady() {
 		},
 		camera: {
 			target : {
-				lat: location.latLng,
+				lat: 50.0604665, lng: 19.9394975,
 				zoom: 16
 			},
 		}
