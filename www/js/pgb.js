@@ -22,7 +22,6 @@ function onDeviceReady() {
 			target : {
 				lat: 50.0604665, lng: 19.9394975
 			},
-			zoom: 16
 		}
 	});
 }
