@@ -1,6 +1,6 @@
 function init() {
-	document.addEventListener("deviceready",onDeviceReady, false);
 	map.getMyLocation(onSuccess, onError);
+	document.addEventListener("deviceready",onDeviceReady, false);
 }
 
 function onDeviceReady() {
