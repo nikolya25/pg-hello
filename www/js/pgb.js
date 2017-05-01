@@ -20,9 +20,9 @@ function onDeviceReady() {
 		},
 		camera: {
 			target : {
-				lat: 50.0604665, lng: 19.9394975,
-				zoom: 16
+				lat: 50.0604665, lng: 19.9394975
 			},
+			zoom: 16
 		}
 	});
 }
