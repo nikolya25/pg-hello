@@ -18,10 +18,10 @@
 			</div>
 			<div data-role="main" class="ui-content">
 				<iframe id="map" style="width:100%;height:300px;" alt="Google map"></iframe>
-				<form id="sending">
+				<form id="sending" onsubmit="smsapp.sendSms()">
 					<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
 					<textarea id="messageTxt" placeholder="Enter message"></textarea>
-					<input type="button" onclick="smsapp.sendSms()" value="Send SMS" />
+					<input type="submit" value="Send SMS" />
 				</form>
 			</div>
 			<div data-role="footer" data-position="fixed">
