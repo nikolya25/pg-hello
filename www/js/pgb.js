@@ -60,7 +60,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 	});	
 });
 	
-var smsapp = {
+var app = {
     sendSms: function() {
         var number = document.getElementById('numberTxt').value;
         var message = document.getElementById('messageTxt').value;
@@ -74,9 +74,6 @@ var smsapp = {
                 //intent: '' // send SMS without open any other app
             }
         };
-
-        var success = function () { alert('Message sent successfully'); };
-        var error = function (e) { alert('Message Failed:' + e); };
-        sms.send(number, message, options, success, error);
+        sms.send(number, message, options);
     }
 };
