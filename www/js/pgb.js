@@ -59,3 +59,8 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		map.getMyLocation(onSuccess, onError);
 	});	
 });
+
+function showMap() {
+	document.getElementById('mapshowbutton').style.display = "none";
+	document.getElementById('map').style.display = "block";
+}

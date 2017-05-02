@@ -18,6 +18,7 @@
 				<h1>GPSSMS</h1>
 			</div>
 			<div data-role="main" class="ui-content">
+				<input type="button" id="mapshowbutton" onclick="showMap()" value="Show Map" />
 				<iframe id="map" style="width:100%;height:300px;" alt="Google map"></iframe>
 				<form id="sending" onsubmit="sendMessage()">
 					<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
