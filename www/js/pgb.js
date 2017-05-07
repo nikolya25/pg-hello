@@ -7,8 +7,7 @@ function onDeviceReady() {
 }	
 
 var div = document.getElementById("map");
-var map = plugin.google.maps.Map.getMap(div);
-map.one(plugin.google.mapsevent.MAP_READY, function() {
+var map = plugin.google.maps.Map.getMap(div, {
 	'mapType': plugin.google.maps.MapTypeId.ROADMAP,
 	'controls': {
 		'compass': true,
@@ -27,8 +26,10 @@ map.one(plugin.google.mapsevent.MAP_READY, function() {
 			lat: 50.0593677, lng: 19.9375843
 		},
 		zoom : 14
-	};
-	
+	}
+});
+
+map.one(plugin.google.maps.event.MAP_READY, function() {	
 	/*var stations = [
 	{
 		position: {lng: 50,057678, lat: 19,926189},
@@ -98,7 +99,7 @@ map.one(plugin.google.mapsevent.MAP_READY, function() {
 	}*/
 });
 
-map.one(plugin.google.maps.event.MAP_READY, function() {
+/*map.one(plugin.google.maps.event.MAP_READY, function() {
 	map.on(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
 			var msg = ["Current location:\n",
