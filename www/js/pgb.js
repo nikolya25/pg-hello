@@ -60,7 +60,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 			snippet: "Kraków, os. Piastów"
 		},
 		{
-			position: {lat: 50.0192 , lng: 20.016803},
+			position: {lat: 50.0192, lng: 20.016803},
 			title: "Kraków, ul. Telimeny",
 			snippet: "Kraków, ul. Telimeny"
 		},
@@ -72,7 +72,12 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 	];
 		
 	for (var i = 0; i < stations.length; i++) {
-		map.addMarker(stations[i]);
+		map.addMarker(stations[i], function(marker) {
+		marker.showInfoWindow();
+		});
+		map.addMarker({stations[i]}, function(marker) {
+		marker.showInfoWindow();
+		});
 	}
 
 	/*function addMarkers(map, stations, callback) {
@@ -98,7 +103,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 			"bearing:" + location.bearing].join("\n");
 		
 			map.addMarker({
-				'position': location.latLng,
+				position: location.latLng,
 				title: msg
 			}, function(marker) {
 				marker.showInfoWindow();
