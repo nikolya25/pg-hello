@@ -9,7 +9,7 @@ function onDeviceReady() {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
 		'controls': {
 			'compass': true,
-			//'myLocationButton': true,
+			'myLocationButton': true,
 			'indoorPicker': true,
 			'zoom': true
 		},
@@ -31,8 +31,11 @@ function onDeviceReady() {
 }
 
 function onMapReady() {
-	var button = document.getElementById("button");
-	button.addEventListener("click", onBtnClicked);
+	var stButton = document.getElementById("stations");
+	stButton.addEventListener("click", onBtnClicked);
+}
+
+function onBtnClicked() {
 	var data = [
 		{
 			'position': {lat: 50.057678, lng: 19.926189},
@@ -96,10 +99,10 @@ function onMapReady() {
 		markers[markers.length - 1].showInfoWindow();
 	});
 	
-	//map.addEventListener(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, onLocButtClick);
+	map.addEventListener(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, onLocBtnClick);
 }
 
-/*function onLocButtClick() {
+function onLocBtnClick() {
 	function onSuccess(location) {
 		var msg = ["Current location:\n",
 		"latitude:" + location.latLng.lat,
