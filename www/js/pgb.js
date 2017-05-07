@@ -25,11 +25,10 @@ function onDeviceReady() {
 			zoom : 14
 		}
 	});
-	map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
 }
 
-function onMapReady() {
-	/*var stations = [
+map.one(plugin.google.maps.event.MAP_READY, function() {	
+	var stations = [
 		{
 			position: {lat: 50,057678, lng: 19,926189},
 			title: "Kraków, Aleja Krasińskiego",
@@ -70,23 +69,16 @@ function onMapReady() {
 			title: "Kraków, os. Wadów",
 			snippet: "Kraków, os. Wadów"
 		}
-		];
-	
-		// Add markers
-		addMarkers(map, stations, function(markers) {
-			var bounds = [];
-			stations.forEach(function(POI) {
-				bounds.push(POI.position);
-			});
-			map.moveCamera({
-				target: bounds
-			}, function() {
-				markers[markers.length - 1].showInfoWindow();
-			});
-		});
-	});
+	];
+		
+	for (var i = 0; i < stations.length; i++) {
+		alert(stations[i] + " jest");
+		map.addMarker({ station[i] }, function(marker) {
+		}
+	}
+});
 
-	function addMarkers(map, stations, callback) {
+	/*function addMarkers(map, stations, callback) {
 		var markers = [];
 		function onMarkerAdded(marker) {
 			markers.push(marker);
@@ -102,8 +94,9 @@ function onMapReady() {
 	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
 			map.addMarker({
-				'position': location.latLng,
-				title: "Jestem TU"
+				position: location.latLng,
+				title: "Jestem TU",
+				animation: plugin.google.maps.Animation.BOUNCE
 			}, function(marker) {
 				marker.showInfoWindow();
 				map.animateCamera({
@@ -115,14 +108,14 @@ function onMapReady() {
 			});
 		};
 
-		var onError = function(msg) {
-			alert(JSON.stringify(msg));
+		var onError = function() {
+			alert('Error');
 		};
 
 		map.clear();
 		map.getMyLocation(onSuccess, onError);
 	});	
-}
+});
 
 function showMap() {
 	document.getElementById('mapshowbutton').style.display = "none";
