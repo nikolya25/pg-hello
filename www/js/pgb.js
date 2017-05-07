@@ -28,7 +28,15 @@ function onDeviceReady() {
 	});
 }
 map.one(plugin.google.maps.event.MAP_READY, function() {	
-	var stations = [
+	map.addMarker({
+		position: {lat: 50.057678, lng: 19.926189},
+		title: "Kraków, Aleja Krasińskiego",
+		snippet: "Kraków, Aleja Krasińskiego" 
+	}, function(marker) {
+		marker.showInfoWindow();
+	});
+
+/*var stations = [
 		{
 			position: {lat: 50.057678, lng: 19.926189},
 			title: "Kraków, Aleja Krasińskiego",
@@ -69,16 +77,13 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 			title: "Kraków, os. Wadów",
 			snippet: "Kraków, os. Wadów"
 		}
-	];
+	];*/
 		
-	for (var i = 0; i < stations.length; i++) {
+	/*for (var i = 0; i < stations.length; i++) {
 		map.addMarker(stations[i], function(marker) {
 		marker.showInfoWindow();
 		});
-		map.addMarker({stations[i]}, function(marker) {
-		marker.showInfoWindow();
-		});
-	}
+	}*/
 
 	/*function addMarkers(map, stations, callback) {
 		var markers = [];
