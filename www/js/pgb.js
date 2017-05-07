@@ -5,7 +5,7 @@ function init() {
 function onDeviceReady() {
 	document.getElementById('mapshowbutton').style.display = "none";
 	var div = document.getElementById("map");
-	var map = plugin.google.maps.Map.getMap(div, {
+	var map = plugin.google.maps.Map.getMap(div , {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
 		'controls': {
 			'compass': true,
@@ -29,7 +29,7 @@ function onDeviceReady() {
 }
 
 map.one(plugin.google.maps.event.MAP_READY, function() {
-	map.on(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
+	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
 			var msg = ["Current location:\n",
 			"latitude:" + location.latLng.lat,
@@ -37,15 +37,15 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 			"speed:" + location.speed,
 			"time:" + location.time,
 			"bearing:" + location.bearing].join("\n");
-
+		
 			map.addMarker({
 				'position': location.latLng,
 				'title': msg
 			}, function(marker) {
 				marker.showInfoWindow();
 				map.animateCamera({
-				target: location.latLng,
-				zoom: 16
+					target: location.latLng,
+					zoom: 16
 				}, function() {
 					marker.showInfoWindow();
 				});
