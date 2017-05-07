@@ -35,7 +35,7 @@ function onDeviceReady() {
   marker.showInfoWindow();
 });
 
-map.one(plugin.google.maps.event.MAP_READY, function() {
+map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
 	map.addMarker({
   position: {"lat": 0, "lng": 0},
   icon: 'blue',
