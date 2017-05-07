@@ -4,7 +4,7 @@ function init() {
 
 function onDeviceReady() {
 	var div = document.getElementById("map");
-	var map = plugin.google.maps.Map.getMap(div);, {
+	var map = plugin.google.maps.Map.getMap(div, {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
 		'controls': {
 			'compass': true,
