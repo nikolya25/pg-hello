@@ -29,7 +29,7 @@ function onDeviceReady() {
 	
 map.one(plugin.google.maps.event.MAP_READY, function() {
 	map.addMarker({
-		position: {lat: 50.057678, lng: 19.926189},
+		position: lat: 50.057678, lng: 19.926189,
 		title: "Kraków, Aleja Krasińskiego",
 		snippet: "Kraków, Aleja Krasińskiego" 
 	}, function(marker) {
