@@ -29,7 +29,7 @@ function onDeviceReady() {
 	
 map.one(plugin.google.maps.event.MAP_READY, function() {
 	
-var stations = [
+/*var stations = [
 		{
 			position: {lng: 50,057678, lat: 19,926189},
 			title: "Kraków, Aleja Krasińskiego",
@@ -96,8 +96,8 @@ var stations = [
 		stations.forEach(function(markerOptions) {
 			map.addMarker(markerOptions, onMarkerAdded);
 		});
-	}
-	/*map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
+	}*/
+	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
 			var msg = ["Current location:\n",
 			"latitude:" + location.latLng.lat,
