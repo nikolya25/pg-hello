@@ -4,6 +4,8 @@ function init() {
 
 function onDeviceReady() {
 	document.getElementById('mapshowbutton').style.display = "none";
+}	
+
 	var div = document.getElementById("map");
 	var map = plugin.google.maps.Map.getMap(div , {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
@@ -19,12 +21,12 @@ function onDeviceReady() {
 			'rotate': true,
 			'zoom': true
 		},
-		/*camera: {
+		camera: {
 			target : {
 				lat: 50.0593677, lng: 19.9375843
 			},
 			zoom : 14
-		}*/
+		}
 	
 		var stations = [
 		{
@@ -93,8 +95,7 @@ function onDeviceReady() {
 		stations.forEach(function(markerOptions) {
 			map.addMarker(markerOptions, onMarkerAdded);
 		});
-	}	
-}
+	}
 
 map.one(plugin.google.maps.event.MAP_READY, function() {
 	map.on(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
