@@ -17,19 +17,18 @@ function onDeviceReady() {
 			'tilt': true,
 			'rotate': true,
 			'zoom': true
-		},
+		}/*,
 		camera: {
 			target : {
 				lat: 50.0593677, lng: 19.9375843
 			},
 			zoom : 14
-		}
+		}*/
 	});
 }
 	
 map.one(plugin.google.maps.event.MAP_READY, function() {
-	
-/*var stations = [
+	var stations = [
 		{
 			position: {lng: 50,057678, lat: 19,926189},
 			title: "Kraków, Aleja Krasińskiego",
@@ -72,7 +71,8 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		}
 		];
 	
-		map.addMarkers(map, stations, function(markers) {
+		// Add markers
+		addMarkers(map, stations, function(markers) {
 			var bounds = [];
 			stations.forEach(function(POI) {
 				bounds.push(POI.position);
@@ -96,7 +96,8 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		stations.forEach(function(markerOptions) {
 			map.addMarker(markerOptions, onMarkerAdded);
 		});
-	}*/
+	}
+	
 	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
 			var msg = ["Current location:\n",
