@@ -9,7 +9,7 @@ function onDeviceReady() {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
 		'controls': {
 			'compass': true,
-			'myLocationButton': true,
+			//'myLocationButton': true,
 			'indoorPicker': true,
 			'zoom': true
 		},
@@ -95,10 +95,11 @@ function onMapReady() {
 	addMarkers(data, function(markers) {
 		markers[markers.length - 1].showInfoWindow();
 	});
-	map.addEventListener(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, onLocButtClick);
+	
+	//map.addEventListener(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, onLocButtClick);
 }
 
-function onLocButtClick() {
+/*function onLocButtClick() {
 	function onSuccess(location) {
 		var msg = ["Current location:\n",
 		"latitude:" + location.latLng.lat,
