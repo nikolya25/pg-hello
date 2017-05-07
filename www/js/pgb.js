@@ -3,8 +3,9 @@ function init() {
 }
 
 function onDeviceReady() {
+	document.getElementById('mapshowbutton').style.display = "none";
 	var div = document.getElementById("map");
-	var map = plugin.google.maps.Map.getMap(div , {
+	var map = plugin.google.maps.Map.getMap(div, {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
 		'controls': {
 			'compass': true,
@@ -27,8 +28,39 @@ function onDeviceReady() {
 	});
 }
 
-map.one(plugin.google.maps.event.MAP_READY, function() {	
-	var stations = [
+map.one(plugin.google.maps.event.MAP_READY, function() {
+	map.on(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
+		function onSuccess(location) {
+			var msg = ["Current location:\n",
+			"latitude:" + location.latLng.lat,
+			"longitude:" + location.latLng.lng,
+			"speed:" + location.speed,
+			"time:" + location.time,
+			"bearing:" + location.bearing].join("\n");
+		
+			map.addMarker({
+				'position': location.latLng,
+				title: msg
+			}, function(marker) {
+				marker.showInfoWindow();
+				map.animateCamera({
+					target: location.latLng,
+					zoom: 16
+				}, function() {
+					marker.showInfoWindow();
+				});
+			});
+		};
+
+		var onError = function(msg) {
+			alert(JSON.stringify(msg));
+		};
+
+		map.clear();
+		map.getMyLocation(onSuccess, onError);
+		
+		
+		var stations = [
 		{
 			position: {lat: 50,057678, lng: 19,926189},
 			title: "Kraków, Aleja Krasińskiego",
@@ -76,7 +108,6 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		map.addMarker({ station[i] }, function(marker) {
 		}
 	}
-});
 
 	/*function addMarkers(map, stations, callback) {
 		var markers = [];
@@ -90,31 +121,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 			map.addMarker(markerOptions, onMarkerAdded);
 		});
 	}*/
-	
-	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
-		function onSuccess(location) {
-			map.addMarker({
-				position: location.latLng,
-				title: "Jestem TU",
-				animation: plugin.google.maps.Animation.BOUNCE
-			}, function(marker) {
-				marker.showInfoWindow();
-				map.animateCamera({
-				target: location.latLng,
-				zoom: 16
-				}, function() {
-					marker.showInfoWindow();
-				});
-			});
-		};
-
-		var onError = function() {
-			alert('Error');
-		};
-
-		map.clear();
-		map.getMyLocation(onSuccess, onError);
-	});	
+	});
 });
 
 function showMap() {
