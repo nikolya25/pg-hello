@@ -17,13 +17,13 @@ function onDeviceReady() {
 			'tilt': true,
 			'rotate': true,
 			'zoom': true
-		}/*,
+		},
 		camera: {
 			target : {
 				lat: 50.0593677, lng: 19.9375843
 			},
 			zoom : 14
-		}*/
+		}
 	});
 }
 	
