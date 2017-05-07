@@ -3,9 +3,8 @@ function init() {
 }
 
 function onDeviceReady() {
-	document.getElementById('mapshowbutton').style.display = "none";
 	var div = document.getElementById("map");
-	var map = plugin.google.maps.Map.getMap(div , {
+	var map = plugin.google.maps.Map.getMap(div, {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
 		'controls': {
 			'compass': true,
@@ -28,7 +27,7 @@ function onDeviceReady() {
 	});
 }
 
-map.one(plugin.google.maps.event.MAP_READY, function() {
+/*map.one(plugin.google.maps.event.MAP_READY, function() {
 	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
 			var msg = ["Current location:\n",
@@ -59,7 +58,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		map.clear();
 		map.getMyLocation(onSuccess, onError);
 	});	
-});
+});*/
 
 function showMap() {
 	document.getElementById('mapshowbutton').style.display = "none";
