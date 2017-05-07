@@ -23,7 +23,7 @@ function onDeviceReady() {
 			target : {
 				lat: 50.0593677, lng: 19.9375843
 			},
-			zoom : 14
+			zoom : 12
 		}
 	});
 }
@@ -71,13 +71,13 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		}
 	];
 		
-	/*for (var i = 0; i < stations.length; i++) {
+	for (var i = 0; i < stations.length; i++) {
 		alert(stations[i] + " jest");
-		map.addMarker({ station[i] }, function(marker) {
+		map.addMarker(station[i] , function(marker) {
 		}
-	}*/
+	}
 
-	function addMarkers(map, stations, callback) {
+	/*function addMarkers(map, stations, callback) {
 		var markers = [];
 		function onMarkerAdded(marker) {
 			markers.push(marker);
@@ -88,7 +88,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		stations.forEach(function(markerOptions) {
 			map.addMarker(markerOptions, onMarkerAdded);
 		});
-	}
+	}*/
 	
 	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
