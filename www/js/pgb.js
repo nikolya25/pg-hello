@@ -71,28 +71,9 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		}
 	];
 	
-		map.addMarkers(map, stations, function(markers) {
-			var bounds = [];
-			stations.forEach(function(POI) {
-				bounds.push(POI.position);
-			});
-			map.moveCamera({
-				target: bounds
-			}, function() {
-				markers[markers.length - 1].showInfoWindow();
-			});
-		});
-
-	function addMarkers(map, stations, callback) {
-		var markers = [];
-		function onMarkerAdded(marker) {
-			markers.push(marker);
-			if (markers.length === stations.length) {
-				callback(markers);
-			}
-		}
-		stations.forEach(function(markerOptions) {
-			map.addMarker(markerOptions, onMarkerAdded);
+	for (var i = 0; i < stations.length; i++) {
+		map.adMarker(stations[i], function(marker) {
+			marker.showInfoWindow();
 		});
 	}	
 
