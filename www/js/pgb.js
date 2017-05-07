@@ -25,10 +25,10 @@ function onDeviceReady() {
 			zoom : 14
 		}
 	});
+	map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
 }
-	
-map.one(plugin.google.maps.event.MAP_READY, function() {
-	alert("loaded");
+
+function onMapReady() {
 	/*var stations = [
 		{
 			position: {lat: 50,057678, lng: 19,926189},
@@ -101,16 +101,9 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 	
 	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
-			var msg = ["Current location:\n",
-			"latitude:" + location.latLng.lat,
-			"longitude:" + location.latLng.lng,
-			"speed:" + location.speed,
-			"time:" + location.time,
-			"bearing:" + location.bearing].join("\n");
-
 			map.addMarker({
 				'position': location.latLng,
-				'title': msg
+				title: "Jestem TU"
 			}, function(marker) {
 				marker.showInfoWindow();
 				map.animateCamera({
@@ -129,7 +122,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		map.clear();
 		map.getMyLocation(onSuccess, onError);
 	});	
-});
+}
 
 function showMap() {
 	document.getElementById('mapshowbutton').style.display = "none";
