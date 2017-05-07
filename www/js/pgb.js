@@ -4,7 +4,7 @@ function init() {
 
 function onDeviceReady() {
 	var div = document.getElementById("map");
-	var map = plugin.google.maps.Map.getMap(div, {
+	var map = plugin.google.maps.Map.getMap(div);/*, {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
 		'controls': {
 			'compass': true,
@@ -24,65 +24,48 @@ function onDeviceReady() {
 			},
 			zoom: 12
 		}
-	});
+	});*/
 }
-	map.addMarker({
-  position: {"lat": 10, "lng": 10},
-  icon: 'green',
-  'title': "Hello World!\nThis plugin is not very awesome!",
-  'snippet': "Tap here!"
-}, function( marker ) {
-  marker.showInfoWindow();
-});
 
-map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
-	map.addMarker({
-  position: {"lat": 0, "lng": 0},
-  icon: 'blue',
-  'title': "Hello World!\nThis plugin is very awesome!",
-  'snippet': "Tap here!"
-}, function( marker ) {
-  marker.showInfoWindow();
-});
-	
+map.on(plugin.google.maps.event.MAP_READY, function() {
 	var data = [
 		{
-			'target': {lat: 50.057678, lng: 19.926189},
+			'position': {lat: 50.057678, lng: 19.926189},
 			'title': "Kraków, Aleja Krasińskiego",
 			'snippet': "Kraków, Aleja Krasińskiego" 
 		},
 		{
-			'target': {lat: 50.057447, lng: 19.946008},
+			'position': {lat: 50.057447, lng: 19.946008},
 			'title': "Kraków, ul. Dietla",
 			'snippet': "Kraków, ul. Dietla"
 		},
 		{
-			'target': {lat: 50.010575, lng: 19.949189},
+			'position': {lat: 50.010575, lng: 19.949189},
 			'title': "Kraków, ul. Bujaka",
 			'snippet': "Kraków, ul. Bujaka"
 		},
 		{
-			'target': {lat: 50.081197, lng: 19.895358},
+			'position': {lat: 50.081197, lng: 19.895358},
 			'title': "Kraków, ul. Złoty Róg",
 			'snippet': "Kraków, ul. Złoty Róg"
 		},
 		{
-			'target': {lat: 50.069308, lng: 20.053492},
+			'position': {lat: 50.069308, lng: 20.053492},
 			'title': "Kraków, ul. Bulwarowa",
 			'snippet': "Kraków, ul. Bulwarowa"
 		},
 		{
-			'target': {lat: 50.099361, lng: 20.018317},
+			'position': {lat: 50.099361, lng: 20.018317},
 			'title': "Kraków, os. Piastów",
 			'snippet': "Kraków, os. Piastów"
 		},
 		{
-			'target': {lat: 50.0192 , lng: 20.016803},
+			'position': {lat: 50.0192 , lng: 20.016803},
 			'title': "Kraków, ul. Telimeny",
 			'snippet': "Kraków, ul. Telimeny"
 		},
 		{
-			'target': {lat: 50.100569, lng: 20.122561},
+			'position': {lat: 50.100569, lng: 20.122561},
 			'title': "Kraków, os. Wadów",
 			'snippet': "Kraków, os. Wadów"
 		}
@@ -115,7 +98,7 @@ map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
 			"bearing:" + location.bearing].join("\n");
 		
 			map.addMarker({
-				'target': location.latLng,
+				'position': location.latLng,
 				'title': msg,
 				'animation': plugin.google.maps.Animation.BOUNCE
 			}, function(marker) {
