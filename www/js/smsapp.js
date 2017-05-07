@@ -19,4 +19,4 @@ var smsapp = {
 		document.getElementById('mapshowbutton').style.display = "block";
         sms.send(number, message, options, success, error);
     }
-};
+}
