@@ -2,35 +2,21 @@ function init() {
 	document.addEventListener("deviceready",onDeviceReady, false);
 }
 
+var map;
 function onDeviceReady() {
 	var div = document.getElementById("map");
-	var map = plugin.google.maps.Map.getMap(div, {
-		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
-		'controls': {
-			'compass': true,
-			//'myLocationButton': true,
-			'indoorPicker': true,
-			'zoom': true
-		},
-		'gestures': {
-			'scroll': true,
-			'tilt': true,
-			'rotate': true,
-			'zoom': true
-		},
-		camera: {
-			target: {
-				lat: 50.0593677, lng: 19.9375843
-			},
-			zoom: 12
-		}
-	});
+	map = plugin.google.maps.Map.getMap(div);
 
 	map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
 }
 
 function onMapReady() {
-  var data = [
+  var button = document.getElementById("button");
+  button.addEventListener("click", onBtnClicked);
+}
+
+function onBtnClicked() {
+	var data = [
 		{
 			'position': {lat: 50.057678, lng: 19.926189},
 			'title': "Kraków, Aleja Krasińskiego",
@@ -89,41 +75,7 @@ function onMapReady() {
 			map.addMarker(markerOptions, onMarkerAdded);
 		});
 	}
-	
-	map.addEventListener(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, onLocButtClick);
 }
-
-function onLocButtClick() {
-	function onSuccess(location) {
-		var msg = ["Current location:\n",
-		"latitude:" + location.latLng.lat,
-		"longitude:" + location.latLng.lng,
-		"speed:" + location.speed,
-		"time:" + location.time,
-		"bearing:" + location.bearing].join("\n");
-		
-		map.addMarker({
-			'position': location.latLng,
-			'title': msg,
-			'animation': plugin.google.maps.Animation.BOUNCE
-		}, function(marker) {
-			marker.showInfoWindow();
-			map.animateCamera({
-				target: location.latLng,
-				zoom: 16
-			}, function() {
-				marker.showInfoWindow();
-			});
-		});
-	};
-
-	var onError = function(msg) {
-		alert(JSON.stringify(msg));
-	};
-		map.clear();
-		map.getMyLocation(onSuccess, onError);
-}	
-
 
 
 /*function onDeviceReady() {
