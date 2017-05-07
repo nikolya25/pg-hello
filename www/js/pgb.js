@@ -25,9 +25,8 @@ function onDeviceReady() {
 			zoom: 14
 		}
 	});
-}
 
-/*map.one(plugin.google.maps.event.MAP_READY, function() {
+map.one(plugin.google.maps.event.MAP_READY, function() {
 	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
 			var msg = ["Current location:\n",
@@ -58,7 +57,8 @@ function onDeviceReady() {
 		map.clear();
 		map.getMyLocation(onSuccess, onError);
 	});	
-});*/
+});
+}
 
 function showMap() {
 	document.getElementById('mapshowbutton').style.display = "none";
