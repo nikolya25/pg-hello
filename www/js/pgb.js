@@ -26,8 +26,25 @@ function onDeviceReady() {
 		}
 	});
 }
-	
+	map.addMarker({
+  position: {"lat": 10, "lng": 10},
+  icon: 'green',
+  'title': "Hello World!\nThis plugin is not very awesome!",
+  'snippet': "Tap here!"
+}, function( marker ) {
+  marker.showInfoWindow();
+});
+
 map.one(plugin.google.maps.event.MAP_READY, function() {
+	map.addMarker({
+  position: {"lat": 0, "lng": 0},
+  icon: 'blue',
+  'title': "Hello World!\nThis plugin is very awesome!",
+  'snippet': "Tap here!"
+}, function( marker ) {
+  marker.showInfoWindow();
+});
+	
 	var data = [
 		{
 			'target': {lat: 50.057678, lng: 19.926189},
