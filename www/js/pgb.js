@@ -28,7 +28,8 @@ function onDeviceReady() {
 }
 	
 map.one(plugin.google.maps.event.MAP_READY, function() {
-	var stations = [
+	alert("loaded");
+	/*var stations = [
 		{
 			position: {lat: 50,057678, lng: 19,926189},
 			title: "Kraków, Aleja Krasińskiego",
@@ -96,7 +97,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 		stations.forEach(function(markerOptions) {
 			map.addMarker(markerOptions, onMarkerAdded);
 		});
-	}
+	}*/
 	
 	map.one(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, function() {
 		function onSuccess(location) {
