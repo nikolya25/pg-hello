@@ -58,13 +58,9 @@ function onBtnClicked() {
 			'snippet': "Kraków, os. Wadów"
 		}
 	];
-	
-	addMarkers(data, function(markers) {
-		markers[markers.length - 1].showInfoWindow();
-	});
 
 	function addMarkers(data, callback) {
-		var markers = [];
+		/*var markers = [];
 		function onMarkerAdded(marker) {
 			markers.push(marker);
 			if (markers.length === data.length) {
@@ -73,8 +69,27 @@ function onBtnClicked() {
 		}
 		data.forEach(function(markerOptions) {
 			map.addMarker(markerOptions, onMarkerAdded);
-		});
+		});*/
+		for (var i = 0; i < data.length; i++) {
+			map.addMarker(data[i])
+		}
 	}
+		
+	addMarkers(data, function(markers) {
+		markers[markers.length - 1].showInfoWindow();
+	});
+	
+	map.addMarker({
+		position: {lat: 50, lng: 20},
+		title: "Go Go Go",
+		snippet: "go go go",
+		animation: plugin.google.maps.Animation.BOUNCE
+	}, function(marker) {
+		marker.showInfoWindow();
+		marker.on(plugin.google.maps.event.INFO_CLICK, function() {
+			alert("Hello world!");
+		});
+	});
 }
 
 
