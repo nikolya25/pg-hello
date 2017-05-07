@@ -5,17 +5,34 @@ function init() {
 var map;
 function onDeviceReady() {
 	var div = document.getElementById("map");
-	map = plugin.google.maps.Map.getMap(div);
+	map = plugin.google.maps.Map.getMap(div, {
+		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
+		'controls': {
+			'compass': true,
+			'myLocationButton': true,
+			'indoorPicker': true,
+			'zoom': true
+		},
+		'gestures': {
+			'scroll': true,
+			'tilt': true,
+			'rotate': true,
+			'zoom': true
+		},
+		camera: {
+			target: {
+				lat: 50.0593677, lng: 19.9375843
+			},
+			zoom: 12
+		}
+	});
 
 	map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
 }
 
 function onMapReady() {
-  var button = document.getElementById("button");
-  button.addEventListener("click", onBtnClicked);
-}
-
-function onBtnClicked() {
+	var button = document.getElementById("button");
+	button.addEventListener("click", onBtnClicked);
 	var data = [
 		{
 			'position': {lat: 50.057678, lng: 19.926189},
@@ -78,20 +95,40 @@ function onBtnClicked() {
 	addMarkers(data, function(markers) {
 		markers[markers.length - 1].showInfoWindow();
 	});
-	
-	map.addMarker({
-		position: {lat: 50, lng: 20},
-		title: "Go Go Go",
-		snippet: "go go go",
-		animation: plugin.google.maps.Animation.BOUNCE
-	}, function(marker) {
-		marker.showInfoWindow();
-		marker.on(plugin.google.maps.event.INFO_CLICK, function() {
-			alert("Hello world!");
-		});
-	});
+	map.addEventListener(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, onLocButtClick);
 }
 
+function onLocButtClick() {
+	function onSuccess(location) {
+		var msg = ["Current location:\n",
+		"latitude:" + location.latLng.lat,
+		"longitude:" + location.latLng.lng,
+		"speed:" + location.speed,
+		"time:" + location.time,
+		"bearing:" + location.bearing].join("\n");
+		
+		map.addMarker({
+			'position': location.latLng,
+			'title': msg,
+			'animation': plugin.google.maps.Animation.BOUNCE
+		}, function(marker) {
+			marker.showInfoWindow();
+			map.animateCamera({
+				target: location.latLng,
+				zoom: 16
+			}, function() {
+				marker.showInfoWindow();
+			});
+		});
+	};
+
+	var onError = function(msg) {
+		alert(JSON.stringify(msg));
+	};
+
+	map.clear();
+	map.getMyLocation(onSuccess, onError);
+}
 
 /*function onDeviceReady() {
 	var div = document.getElementById("map");
