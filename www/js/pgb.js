@@ -20,10 +20,10 @@ function onDeviceReady() {
 			'zoom': true
 		},
 		camera: {
-			target : {
+			target: {
 				lat: 50.0593677, lng: 19.9375843
 			},
-			zoom : 14
+			zoom: 14
 		}
 	});
 }
@@ -39,8 +39,8 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 			"bearing:" + location.bearing].join("\n");
 		
 			map.addMarker({
-				'position': location.latLng,
-				'title': msg
+				position: location.latLng,
+				title: msg
 			}, function(marker) {
 				marker.showInfoWindow();
 				map.animateCamera({
