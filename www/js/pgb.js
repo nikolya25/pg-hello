@@ -72,9 +72,7 @@ map.one(plugin.google.maps.event.MAP_READY, function() {
 	];
 		
 	for (var i = 0; i < stations.length; i++) {
-		alert(stations[i] + " jest");
-		map.addMarker(station[i] , function(marker) {
-		});
+		map.addMarker(station[i]);
 	}
 
 	/*function addMarkers(map, stations, callback) {
