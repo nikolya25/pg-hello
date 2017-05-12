@@ -1,7 +1,11 @@
-$$(document).on('deviceready', function deviceIsReady() {
+function init() {
+	document.addEventListener("deviceready",onDeviceReady, false);
+}
+
+function onDeviceReady() {
    alert('Device is ready!');
    setupPush();
- });
+}
 
 function setupPush() {
    var push = PushNotification.init({
