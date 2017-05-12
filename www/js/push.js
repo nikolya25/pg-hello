@@ -1,12 +1,12 @@
 $$(document).on('deviceready', function deviceIsReady() {
-   console.log('Device is ready!');
+   alert('Device is ready!');
    setupPush();
  });
 
 function setupPush() {
    var push = PushNotification.init({
        "android": {
-           "senderID": "781429210866 "
+           "senderID": "781429210866"
        },
        "ios": {
          "sound": true,
