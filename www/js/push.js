@@ -44,10 +44,10 @@ function setupPush() {
    	push.on('notification', function(data) {
 		console.log('notification event');
         navigator.notification.alert(
-            "World", 	       // message
-            null,              // callback
-            "Hello",           // title
-            'Ok'               // buttonName
+            data.message,         // message
+            null,                 // callback
+            data.title,           // title
+            'Ok'                  // buttonName
         );
     });
  }
